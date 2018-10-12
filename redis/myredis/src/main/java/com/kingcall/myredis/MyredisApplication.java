@@ -1,12 +1,12 @@
-package com.kingcall.data;
+package com.kingcall.myredis;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DataApplication {
+public class MyredisApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DataApplication.class, args);
+        SpringApplication.run(MyredisApplication.class, args);
     }
 }
