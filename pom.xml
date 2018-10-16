@@ -83,6 +83,7 @@
     </dependencies>
     <dependencyManagement>
         <dependencies>
+            <!-- 注意一下  mybatis 的启动包是由第三方完成的  -->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
