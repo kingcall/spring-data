@@ -10,6 +10,7 @@ import java.util.List;
  * @Date 2018/10/15 12:50
  * @Author kingcall
  */
+@Mapper
 public interface GardenPriceMapper {
 
     @Select("SELECT * FROM gardenprice")
