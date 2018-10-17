@@ -14,4 +14,4 @@ spring:
 mybatis:
   #config-location: classpath:mybatis/
   mapper-locations: classpath:mybatis/mapper/*.xml
-  type-aliases-package: com.kingcall.mybatis.mapper
+#  type-aliases-package: com.kingcall.mybatis.mapper  不知道这个到底是干什么的，发现可有可无
