@@ -23,3 +23,6 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+/jpa/target/
+jpa/target/
+mybatis/target/

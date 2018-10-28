@@ -1,6 +1,6 @@
 package com.kingcall.jpa.service;
 
-import com.kingcall.entity.User;
+import com.kingcall.jpa.entity.User;
 import com.kingcall.jpa.dao.UserReposity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;

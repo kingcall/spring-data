@@ -1,6 +1,6 @@
 package com.kingcall.jpa;
 
-import com.kingcall.entity.User;
+import com.kingcall.jpa.entity.User;
 import com.kingcall.jpa.dao.UserReposity;
 import com.kingcall.jpa.service.UserService;
 import org.junit.Test;

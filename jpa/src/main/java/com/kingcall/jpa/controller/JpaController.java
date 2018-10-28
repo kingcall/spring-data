@@ -1,7 +1,6 @@
 package com.kingcall.jpa.controller;
-
-import com.kingcall.integration.database.mysql.jdbc.entity.User;
-import com.kingcall.integration.database.mysql.jpa.service.UserService;
+import com.kingcall.jpa.entity.User;
+import com.kingcall.jpa.service.UserService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

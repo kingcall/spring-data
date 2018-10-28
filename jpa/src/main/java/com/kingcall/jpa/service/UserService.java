@@ -1,6 +1,6 @@
 package com.kingcall.jpa.service;
 
-import com.kingcall.entity.User;
+import com.kingcall.jpa.entity.User;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
