@@ -74,10 +74,43 @@
         - USER 什么用户才能运行这个dockerfile
         - LABEL 指定标签 LABEL version="1.0.0"; LABEL desc="我的容器";
    - ## 端口映射和容器联网
-        - p 可以多次使用
-        - p 127.0.0.1:5000:5000  127.0.0.1::5000 映射到特定地址的特定端口或者任意端口
-        - docker port 75d794229459
-        - docker run --name web -d --link db:bd_con tomcat
+        - 默认的docker容器是不能链接网络的
+            - iptables
+            - ip_forward
+                - 决定系统是否允许转发流量，默认是true,即允许
+                - 这个是容器联网的关键（容器访问互联网，互联网上的机器访问容器）
+            - 允许端口映射
+            - 限制IP访问
+        - 基本命令
+            - p 可以多次使用
+            - p 127.0.0.1:5000:5000  127.0.0.1::5000 映射到特定地址的特定端口或者任意端口
+            - docker port 75d794229459
+            - docker run --name web -d --link db:bd_con tomcat
+        - linux 是上的docker 
+            - ifconfig---------> docker0 就是docker 服务端的网卡(就行虚拟机的eth0)，既然有虚拟网卡，就可以手动配置
+                - 手动配置 ifconfig docker0 129.168.12.122 netmask 255.255.255.0 
+            - 当然它还有有其他信息，如mac地址
+   - ## docker 容器的互联
+        - 默认情况下允许所有的容器相互连接
+             - docker run -it centos --icc=true(--icc=true 这个参数默认是true,这个参数是守护进程的，而不是容器的，要修改docker的配置文件才能生效)
+                   - 测试
+                        - run -it --name cct1/cct2 centos 启动两个容器 cct1和cct2
+                        - yum -y install net-tools 安装网络工具
+                        - ifconfig 查看各自的ip
+                        - 互 ping 
+             - 原因在同一个机器上的docker的服务进程都是通过虚拟网桥进行链接的，就像虚拟机的net模式一样，在同一个局域网内 .
+                   - docker 容器的ip是动态变化的，也就是在容器重启的时候ip可能发生变化  
+                        - docker run -it --name cct3 --link cct1:cct1 centos(--link cct1:cct1 连接到cct1 并个cct1 起别名 cct1)
+                            - 改变了什么
+                                - CCT1_NAME=/cct3/cct1 环境变量的改变
+                                - /etc/hosts 改变了ip映射
+                           
+        - 拒绝容器之间的链接
+             -  docker run -it centos --icc=false(--icc=true 这个参数默认是true)
+        - 允许特定的容器之间链接
+            - docker run -it centos --icc=false --iptables=true(iptables 来控制特定的ip 访问)
+            
+            
    - 基本镜像的使用
         -  docker run -d -P -e MYSQL_ROOT_PASSWORD=root mysql
    - ## 创建镜像的方式
