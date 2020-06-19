@@ -1,0 +1,20 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: sample-spring-elasticsearch
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+      cluster-name: kingcall
+      cluster-nodes: localhost:9300
+  elasticsearch:
+    rest:
+      uris: http://localhost:9200
+      username: elastic
+      password: www1234
+
+initial-import:
+  enabled: true
+
