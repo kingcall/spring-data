@@ -18,6 +18,7 @@
         <module>redis</module>
         <module>elasticsearch-rest</module>
         <module>elasticsearch-data</module>
+        <module>data-common</module>
     </modules>
 
     <parent>
