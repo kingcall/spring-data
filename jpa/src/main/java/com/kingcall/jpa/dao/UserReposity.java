@@ -19,6 +19,8 @@ public interface UserReposity extends JpaRepository<User,Integer>{
     List<User> findUserByNameOrderByIdDesc(String name);
     List<User> findUserByNameOrderByIdAsc(String name);
     List<User> findByName(String name);
+    List<User> findAllByOrderByIdDesc();
+
 
     /**
      * 根据用户名获取前三个用户
@@ -79,7 +81,6 @@ public interface UserReposity extends JpaRepository<User,Integer>{
     public List<Object[]> departmentCount();
 
 
-//    public String deleteAndInsert(Integer id);
 
 
 }

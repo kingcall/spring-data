@@ -36,7 +36,6 @@ public class JpaController {
 
     /**
      * 批量添加记录
-     * @param user
      * @return
      */
     @RequestMapping(value = "/adduserall")
@@ -70,15 +69,22 @@ public class JpaController {
     @RequestMapping("/allsort")
     public List<User> allSort(){
         System.out.println("获取全部用户信息并进行排序的方法被执行");
-        Sort sort = new Sort(Sort.Direction.DESC,"name");
+        Sort sort = Sort.by(Sort.Direction.DESC,"name");
         return  userService.findAllAndSort(sort);
     }
+
+    @RequestMapping("/allsort2")
+    public List<User> allSort2(){
+        System.out.println("获取全部用户信息并进行排序的方法被执行");
+        return  userService.findAllAndSortByIdDesc();
+    }
+
 
     @RequestMapping("/allpage/{id}")
     public List<User> allPage(@PathVariable int id){
         System.out.println("分页查询");
-        Sort sort = new Sort(Sort.Direction.DESC,"name");
-        PageRequest pageRequest = new PageRequest(id, 3, sort);
+        Sort sort =  Sort.by(Sort.Direction.DESC,"name");
+        PageRequest pageRequest = PageRequest.of(id, 3, sort);
         Page<User> page= userService.findAllAndPage(pageRequest);
         System.out.println(page.getTotalElements());
         System.out.println(page.getTotalPages());

@@ -16,6 +16,7 @@ public interface UserService {
     public List<User> findAll();
     public List<User> findAll(Example example);
     public List<User> findAllAndSort(Sort sort);
+    public List<User> findAllAndSortByIdDesc();
     public Page<User> findAllAndPage(Pageable pageable);
     public User getOne(Integer id);
     public Integer count();

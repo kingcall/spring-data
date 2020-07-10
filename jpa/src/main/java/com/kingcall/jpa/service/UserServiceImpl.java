@@ -37,6 +37,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> findAllAndSortByIdDesc() {
+        return userDao.findAllByOrderByIdDesc();
+    }
+
+    @Override
     public Page<User> findAllAndPage(Pageable pageable) {
         return userDao.findAll(pageable);
     }
