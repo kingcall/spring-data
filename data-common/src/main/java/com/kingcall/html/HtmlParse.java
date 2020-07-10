@@ -50,9 +50,9 @@ public class HtmlParse {
         for (int i = 1; i < data.size(); i++) {
             List<String> values=data.get(i);
             String value = values.stream().map(line -> "'" + line + "'").collect(Collectors.toList()).toString();
-            System.out.println(base+value.substring(1,value.length() -1)+");");
+            listSql.add(base + value.substring(1, value.length() - 1) + ");");
         }
-        return null;
+        return listSql;
     }
 
 
