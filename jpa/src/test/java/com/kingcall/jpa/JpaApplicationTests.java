@@ -1,8 +1,8 @@
 package com.kingcall.jpa;
 
-import com.kingcall.jpa.entity.User;
-import com.kingcall.jpa.dao.UserReposity;
-import com.kingcall.jpa.service.UserService;
+import com.kingcall.jpa.entity.user.User;
+import com.kingcall.jpa.dao.user.UserReposity;
+import com.kingcall.jpa.service.user.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;

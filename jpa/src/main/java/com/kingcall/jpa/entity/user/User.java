@@ -1,4 +1,4 @@
-package com.kingcall.jpa.entity;
+package com.kingcall.jpa.entity.user;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -8,28 +8,27 @@ import java.io.Serializable;
 import java.util.Date;
 
 /*
-*
-* gen by beetlsql 2017-03-18
-*/
+ *
+ * gen by beetlsql 2017-03-18
+ */
 @Entity
 @Getter
 @Setter
 @ToString
-public class User implements Serializable{
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class User implements Serializable {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private int id ;
+	private int id;
 
-    @Column(name = "department_id")
-	private Integer departmentId ;
+	@Column(name = "department_id")
+	private Integer departmentId;
 	//部门
-   @Column
-	private String name ;
+	@Column
+	private String name;
 	//创建时间
-    @Column(name = "create_time")
-	private Date createTime ;
+	@Column(name = "create_time")
+	private Date createTime;
 
 	public User() {
 	}
@@ -39,6 +38,7 @@ public class User implements Serializable{
 		this.name = name;
 		this.createTime = createTime;
 	}
+
 	public User(Integer id, Integer department_id, String name, Date createTime) {
 		this.id = id;
 		this.departmentId = department_id;

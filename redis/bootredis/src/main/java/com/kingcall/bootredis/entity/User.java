@@ -1,9 +1,15 @@
 package com.kingcall.bootredis.entity;
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.io.Serializable;
 import java.util.Date;
 
 /*
-* 
+*
 * gen by beetlsql 2017-03-18
 */
 @Entity
@@ -19,7 +25,7 @@ public class User implements Serializable{
 	//创建时间
     @Column(name = "create_time")
 	private Date createTime ;
-	
+
 	public User() {
 	}
 
@@ -41,21 +47,21 @@ public class User implements Serializable{
 	public void setId(Integer id ){
 		this.id = id;
 	}
-	
+
 	public Integer getDepartmentId(){
 		return  department_id;
 	}
 	public void setDepartmentId(Integer departmentId ){
 		this.department_id = departmentId;
 	}
-	
+
 	public String getName(){
 		return  name;
 	}
 	public void setName(String name ){
 		this.name = name;
 	}
-	
+
 	public Date getCreateTime(){
 		return  createTime;
 	}

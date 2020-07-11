@@ -74,7 +74,7 @@ public class HtmlParse {
                 query = "td";
             }
             for (Element etd : etr.select(query)) {
-                String temp = etd.text();
+                String temp = getText(etd);
                 //增加一行中的一列
                 list.add(temp);
             }
