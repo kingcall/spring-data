@@ -22,6 +22,7 @@ import java.util.Map;
 
 @Repository
 public class UserDao {
+
 	@Autowired
 	JdbcTemplate jdbcTempalte;
 	@Autowired
@@ -32,7 +33,7 @@ public class UserDao {
 		Integer count = jdbcTempalte.queryForObject(sql, Integer.class, departmentId);
 		return count;
 	}
-	
+
 	public Integer totalUserInDepartment2(Long departmentId) {
 		String sql = "select count(1) from user where department_id=:deptId";
 		MapSqlParameterSource namedParameters = new MapSqlParameterSource();

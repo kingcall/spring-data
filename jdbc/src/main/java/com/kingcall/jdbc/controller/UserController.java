@@ -16,7 +16,7 @@ import java.util.Map;
 @RequestMapping("/data")
 public class UserController {
 	@Autowired
-	@Qualifier("database_UserServiceImpl")
+	@Qualifier("UserServiceImpl")
     UserService userService;
 	@RequestMapping("/user/{id}")
 	public @ResponseBody

@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 
-@Service("database_UserServiceImpl")
+@Service("UserServiceImpl")
 public class UserServiceImpl implements UserService {
-	
+
 	@Autowired
 	UserDao userDao;
-	
+
 	@Override
 	public User geUserById(Integer id) {
 		User user = userDao.findUserById(id);
