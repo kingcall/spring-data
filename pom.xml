@@ -21,6 +21,10 @@
         <module>data-common</module>
         <module>h2</module>
         <module>multi-datasouce</module>
+        <module>hikariCP</module>
+        <module>druid</module>
+        <module>programmatic-transaction</module>
+        <module>declarative-transaction</module>
     </modules>
 
     <parent>

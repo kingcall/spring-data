@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/kingcall?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT&useSSL=false
+    username: root
+    password: www1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      filters: stat
+      maxActive: 30
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+      stat-view-servlet:
+        login-username: kingcall
+        login-password: www1234
+        enabled: true
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1
+          enabled: true

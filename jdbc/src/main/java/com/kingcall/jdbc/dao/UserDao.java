@@ -1,14 +1,13 @@
 package com.kingcall.jdbc.dao;
 
+import com.kingcall.jdbc.entity.Foo;
 import com.kingcall.jdbc.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.namedparam.*;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
@@ -17,6 +16,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -145,6 +145,28 @@ public class UserDao {
         source.addValue("department_id", user.getDepartmentId());
         return jdbcTempalte.update(sql,source,Integer.class);
     }
+
+	public void batchInsert() {
+		jdbcTempalte.batchUpdate("INSERT INTO FOO (BAR) VALUES (?)",
+				new BatchPreparedStatementSetter() {
+					@Override
+					public void setValues(PreparedStatement ps, int i) throws SQLException {
+						ps.setString(1, "b-" + i);
+					}
+
+					@Override
+					public int getBatchSize() {
+						return 2;
+					}
+				});
+
+		List<Foo> list = new ArrayList<>();
+		list.add(Foo.builder().id(100L).bar("b-100").build());
+		list.add(Foo.builder().id(101L).bar("b-101").build());
+		namedParameterJdbcTemplate
+				.batchUpdate("INSERT INTO FOO (ID, BAR) VALUES (:id, :bar)",
+						SqlParameterSourceUtils.createBatch(list));
+	}
 
 	static class UserRowMapper implements RowMapper<User> {
 		@Override
