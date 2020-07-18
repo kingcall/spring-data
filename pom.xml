@@ -12,7 +12,9 @@
     <description>SpringData的学习</description>
 
     <modules>
-        <module>jpa</module>
+        <module>jpa-multisources</module>
+        <module>jpa-bucks</module>
+        <module>jpa-bucks-complex</module>
         <module>jdbc</module>
         <module>mybatis</module>
         <module>redis</module>
