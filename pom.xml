@@ -15,8 +15,10 @@
         <module>jpa-multisources</module>
         <module>jpa-bucks</module>
         <module>jpa-bucks-complex</module>
-        <module>jdbc</module>
         <module>mybatis</module>
+        <module>mybatis-bucks</module>
+        <module>mybatis-generator</module>
+        <module>jdbc</module>
         <module>redis</module>
         <module>elasticsearch-rest</module>
         <module>elasticsearch-data</module>
