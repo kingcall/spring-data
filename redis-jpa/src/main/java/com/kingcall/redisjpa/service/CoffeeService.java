@@ -29,6 +29,7 @@ public class CoffeeService {
     }
 
     public Optional<Coffee> findSimpleCoffeeFromCache(String name) {
+
         Optional<CoffeeCache> cached = cacheRepository.findOneByName(name);
         if (cached.isPresent()) {
             CoffeeCache coffeeCache = cached.get();

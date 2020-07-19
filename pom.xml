@@ -37,8 +37,10 @@
         <module>mongo-jpa</module>
         <module>cache</module>
         <module>cache-base</module>
-
         <module>errcode</module>
+        <!--reactive 编程 -->
+        <module>reactor-simple</module>
+        <module>reactor-redis</module>
 
     </modules>
 
