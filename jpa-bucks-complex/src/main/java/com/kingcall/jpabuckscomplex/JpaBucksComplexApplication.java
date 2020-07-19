@@ -1,10 +1,13 @@
 package com.kingcall.jpabuckscomplex;
 
+import com.google.common.base.Joiner;
 import com.kingcall.jpabuckscomplex.dao.CoffeeOrderRepository;
 import com.kingcall.jpabuckscomplex.dao.CoffeeRepository;
 import com.kingcall.jpabuckscomplex.entity.Coffee;
 import com.kingcall.jpabuckscomplex.entity.CoffeeOrder;
 import com.kingcall.jpabuckscomplex.entity.OrderState;
+import com.kingcall.jpabuckscomplex.service.CoffeeOrderService;
+import com.kingcall.jpabuckscomplex.service.CoffeeService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +26,7 @@ import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @SpringBootApplication
@@ -36,6 +40,12 @@ public class JpaBucksComplexApplication implements ApplicationRunner {
     @Autowired
     private CoffeeOrderRepository orderRepository;
 
+    @Autowired
+    private CoffeeService coffeeService;
+    @Autowired
+    private CoffeeOrderService orderService;
+
+
     public static void main(String[] args) {
         SpringApplication.run(JpaBucksComplexApplication.class, args);
     }
@@ -45,16 +55,17 @@ public class JpaBucksComplexApplication implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         initOrders();
         findOrders();
+        service();
     }
 
     private void initOrders() {
-        Coffee latte = Coffee.builder().name("latte")
+        Coffee costa = Coffee.builder().name("costa")
                 .price(Money.of(CurrencyUnit.of("CNY"), 30.0))
                 .build();
-        coffeeRepository.save(latte);
-        log.info("Coffee: {}", latte);
+        coffeeRepository.save(costa);
+        log.info("Coffee: {}", costa);
 
-        Coffee espresso = Coffee.builder().name("espresso")
+        Coffee espresso = Coffee.builder().name("上岛咖啡")
                 .price(Money.of(CurrencyUnit.of("CNY"), 20.0))
                 .build();
         coffeeRepository.save(espresso);
@@ -70,7 +81,7 @@ public class JpaBucksComplexApplication implements ApplicationRunner {
 
         order = CoffeeOrder.builder()
                 .customer("Li Lei")
-                .items(Arrays.asList(espresso, latte))
+                .items(Arrays.asList(espresso, costa))
                 .state(OrderState.INIT)
                 .build();
         orderRepository.save(order);
@@ -103,5 +114,18 @@ public class JpaBucksComplexApplication implements ApplicationRunner {
         return list.stream().map(o -> o.getId().toString())
                 .collect(Collectors.joining(","));
     }
+
+    private void service() {
+        log.info("All Coffee: {}", "\n"+Joiner.on("\n").join(coffeeRepository.findAll()));
+
+        Optional<Coffee> latte = coffeeService.findOneCoffee("Latte");
+        if (latte.isPresent()) {
+            CoffeeOrder order = orderService.createOrder("Li Lei", latte.get());
+            log.info("Update INIT to PAID: {}", orderService.updateState(order, OrderState.PAID));
+            log.info("Update PAID to INIT: {}", orderService.updateState(order, OrderState.INIT));
+        }
+
+    }
+
 
 }

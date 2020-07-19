@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "T_MENU")
+@Table(name = "t_coffee")
 @Builder
 @Data
 @ToString(callSuper = true)
