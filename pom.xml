@@ -22,6 +22,7 @@
         <module>jdbc</module>
         <module>redis-jedis</module>
         <module>redis-template</module>
+        <module>redis-jpa</module>
         <module>elasticsearch-rest</module>
         <module>elasticsearch-data</module>
         <module>data-common</module>
