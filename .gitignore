@@ -16,6 +16,7 @@
 *.iml
 *.ipr
 
+
 ### NetBeans ###
 /nbproject/private/
 /build/
@@ -26,3 +27,9 @@
 /jpa/target/
 jpa/target/
 mybatis/target/
+.gitignore
+.mvn/
+mvnw
+mvnw.cmd
+
+
