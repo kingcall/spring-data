@@ -29,6 +29,8 @@
         <module>druid</module>
         <module>programmatic-transaction</module>
         <module>declarative-transaction</module>
+        <module>mongo-template</module>
+        <module>mongo-jpa</module>
     </modules>
 
     <parent>
