@@ -41,6 +41,8 @@
         <!--reactive 编程 -->
         <module>reactor-simple</module>
         <module>reactor-redis</module>
+        <module>reactor-mongo</module>
+        <module>reactor-r2dbc</module>
 
     </modules>
 
