@@ -34,11 +34,3 @@ mvnw.cmd
 
 
 
-
-data-common/src/test/
-elasticsearch-data/src/test/
-elasticsearch-rest/src/test/
-jdbc/target/
-jpa-bucks/HELP.md
-jpa-bucks/target/
-multi-datasouce/src/test/
