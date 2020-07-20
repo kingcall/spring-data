@@ -43,6 +43,7 @@
         <module>reactor-redis</module>
         <module>reactor-mongo</module>
         <module>reactor-r2dbc</module>
+        <module>reactor-bucks</module>
 
     </modules>
 
