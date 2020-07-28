@@ -8,9 +8,9 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <groupId>com.kingcall</groupId>
-    <artifactId>redis-template</artifactId>
+    <artifactId>redis-lock</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>redis-template</name>
+    <name>redis-lock</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -21,11 +21,22 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
-            <!--lettuce 是 Spring Boot 默认的 Redis 客户端，我们将它的依赖移除，换成我们最常用的 Jedis 依赖。-->
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
-            <groupId>jakarta.persistence</groupId>
-            <artifactId>jakarta.persistence-api</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
 

@@ -21,10 +21,8 @@
         <module>mybatis-pagehelper</module>
         <module>mybatis2</module>
         <module>mybatis-dynamicsql</module>
+
         <module>jdbc</module>
-        <module>redis-jedis</module>
-        <module>redis-template</module>
-        <module>redis-jpa</module>
         <module>elasticsearch-rest</module>
         <module>elasticsearch-data</module>
         <module>data-common</module>
@@ -37,8 +35,14 @@
         <module>manual-transaction</module>
         <module>mongo-template</module>
         <module>mongo-jpa</module>
+        <!--redis-->
         <module>cache</module>
         <module>cache-base</module>
+        <module>cache-redis</module>
+        <module>redis-jedis</module>
+        <module>redis-template</module>
+        <module>redis-template2</module>
+        <module>redis-jpa</module>
         <module>errcode</module>
         <!--reactive 编程 -->
         <module>reactor-simple</module>
