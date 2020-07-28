@@ -19,6 +19,8 @@
         <module>mybatis-bucks</module>
         <module>mybatis-generator</module>
         <module>mybatis-pagehelper</module>
+        <module>mybatis2</module>
+        <module>mybatis-dynamicsql</module>
         <module>jdbc</module>
         <module>redis-jedis</module>
         <module>redis-template</module>
