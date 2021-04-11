@@ -43,6 +43,7 @@
         <module>redis-template</module>
         <module>redis-template2</module>
         <module>redis-jpa</module>
+        <module>redis-lock</module>
         <module>errcode</module>
         <!--reactive 编程 -->
         <module>reactor-simple</module>
@@ -50,6 +51,8 @@
         <module>reactor-mongo</module>
         <module>reactor-r2dbc</module>
         <module>reactor-bucks</module>
+
+        <module>kafka</module>
 
     </modules>
 
