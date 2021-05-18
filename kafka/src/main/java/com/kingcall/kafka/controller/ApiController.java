@@ -15,10 +15,13 @@ public class ApiController {
     @Autowired
     ParseService parseService;
 
-    @RequestMapping(value = "/info",produces = "application/json;charset=UTF-8")
-    public void getUser(@RequestBody String info) {
-        UserModel userModel = parseService.parseUser(info);
-        log.info("receive userInfo:" + userModel);
-        parseService.send2Kafka(userModel);
+    @RequestMapping(value = "/info", produces = "application/json;charset=UTF-8")
+    public void getUser(@RequestBody String info, @RequestParam("tocken") String tocken) {
+        // 一个简单的信息验证
+        if ("lezkbigdataweblog".equals(tocken)) {
+            parseService.send2Kafka(info);
+        } else {
+            System.out.println(info);
+        }
     }
 }

@@ -16,6 +16,5 @@ public interface ParseService {
      * @param userModel
      * @return
      */
-    public boolean send2Kafka(UserModel userModel
-    );
+    public boolean send2Kafka(String info);
 }

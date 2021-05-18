@@ -34,15 +34,15 @@ public class ParseServiceImpl implements ParseService {
     }
 
     @Override
-    public boolean send2Kafka(UserModel userModel) {
+    public boolean send2Kafka(String info) {
         boolean flag = true;
-        ListenableFuture listenableFuture = kafkaTemplate.send(userTopic, JSONObject.toJSONString(userModel));
+        ListenableFuture listenableFuture = kafkaTemplate.send(userTopic, info);
         try {
             listenableFuture.get(3L, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException | TimeoutException e) {
-            log.warning("发送失败:" + userModel);
+            log.warning("发送失败:" + info);
             flag = false;
             e.printStackTrace();
         }
